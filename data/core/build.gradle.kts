@@ -37,6 +37,8 @@ dependencies {
 
     implementation(libs.koin.core)
 
+    implementation(libs.kotlin.coroutine)
+
     api(projects.library.domain)
 
 }

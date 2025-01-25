@@ -1,11 +1,11 @@
-package fr.dot.sephora.library.domain.repository
+package fr.dot.sephora.library.core.source.product
 
 import fr.dot.sephora.library.domain.models.Product
 import kotlinx.coroutines.flow.Flow
 
-interface ProductRepository {
+interface ProductLocalDataSource {
 
-    suspend fun getProducts(): List<Product>
+    suspend fun upsert(entities: List<Product>)
 
     fun flowOfProducts(): Flow<List<Product>>
 

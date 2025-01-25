@@ -4,11 +4,17 @@ import android.widget.Filter
 import android.widget.Filterable
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import fr.dot.sephora.library.domain.usecase.FlowOfProductsUseCase
+import fr.dot.sephora.library.domain.usecase.FlowOfReviewsUseCase
 import fr.dot.sephora.library.domain.usecase.GetProductsUseCase
 import fr.dot.sephora.library.domain.usecase.GetReviewsUseCase
+import kotlinx.coroutines.flow.catch
+import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.launch
 
 internal class MainViewModel(
+    private val flowOfProductsUseCase: FlowOfProductsUseCase,
+    private val flowOfReviewsUseCase: FlowOfReviewsUseCase,
     private val productsUseCase: GetProductsUseCase,
     private val reviewsUseCase: GetReviewsUseCase
 ) : ViewModel() {
@@ -20,24 +26,28 @@ internal class MainViewModel(
 
     init {
         viewModelScope.launch {
-            val products = productsUseCase(GetProductsUseCase.Params)
-                .onFailure(Throwable::printStackTrace)
-                .getOrDefault(emptyList())
-            val reviews = reviewsUseCase(GetReviewsUseCase.Params)
-                .onFailure(Throwable::printStackTrace)
-                .getOrDefault(emptyList())
-            val productsWithReviews = products.map { product ->
-                val review = reviews.find { it.productId == product.id }
+            combine(
+                flowOfProductsUseCase(FlowOfProductsUseCase.Params),
+                flowOfReviewsUseCase(FlowOfReviewsUseCase.Params)
+            ) { products, reviews ->
+                products.map { product ->
+                    val review = reviews.find { it.productId == product.id }
 
-                ProductWithReviews(
-                    product = product,
-                    hidden = review?.hide ?: false,
-                    reviews = review?.reviews.orEmpty()
-                )
+                    ProductWithReviews(
+                        product = product,
+                        hidden = review?.hide ?: false,
+                        reviews = review?.reviews.orEmpty()
+                    )
+                }
             }
-
-            fullList.addAll(productsWithReviews)
-            adapter.submitList(productsWithReviews)
+                .catch { it.printStackTrace() }
+                .collect { list ->
+                    if (list.isEmpty()) {
+                        refresh()
+                    }
+                    fullList.addAll(list)
+                    adapter.submitList(list)
+                }
         }
     }
 
@@ -46,8 +56,14 @@ internal class MainViewModel(
     }
 
     fun onCloseSearch() {
-        println("FULLLIST")
         adapter.submitList(fullList)
+    }
+
+    private fun refresh() {
+        viewModelScope.launch {
+            productsUseCase(GetProductsUseCase.Params)
+            reviewsUseCase(GetReviewsUseCase.Params)
+        }
     }
 
     private inner class ProductFilter : Filter() {
@@ -58,7 +74,7 @@ internal class MainViewModel(
                 fullList
             } else {
                 fullList.filter { product ->
-                    product.product.name.contains(constraint.toString().orEmpty(), true)
+                    product.product.name.contains(constraint.toString(), true)
                 }
             }
 

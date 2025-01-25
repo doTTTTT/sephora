@@ -1,6 +1,10 @@
 plugins {
     alias(libs.plugins.android.library)
+    alias(libs.plugins.android.room)
+
     alias(libs.plugins.kotlin.android)
+
+    alias(libs.plugins.google.ksp)
 }
 
 android {
@@ -23,21 +27,30 @@ android {
             )
         }
     }
+
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_11
         targetCompatibility = JavaVersion.VERSION_11
     }
+
     kotlinOptions {
         jvmTarget = "11"
+    }
+
+    room {
+        schemaDirectory("$projectDir/schemas")
     }
 }
 
 dependencies {
 
-    implementation(libs.android.core)
-    implementation(libs.android.appcompat)
-    implementation(libs.google.material)
-    testImplementation(libs.junit.core)
-    androidTestImplementation(libs.test.android.junit.core)
-    androidTestImplementation(libs.test.android.espresso.core)
+    implementation(libs.bundles.room)
+    ksp(libs.room.compiler)
+
+    implementation(libs.koin.core)
+
+    implementation(projects.data.core)
+
+    implementation(projects.library.domain)
+
 }

@@ -51,5 +51,6 @@ dependencies {
 
     implementation(projects.data.core)
     implementation(projects.data.remote)
+    implementation(projects.data.local)
 
 }
