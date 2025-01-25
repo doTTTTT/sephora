@@ -37,6 +37,7 @@ android-recyclerview-selection = { group = "androidx.recyclerview", name = "recy
 android-security = { module = "androidx.security:security-crypto", version = "1.1.0-alpha06" }
 android-paging = { group = "androidx.paging", name = "paging-runtime-ktx", version.ref = "paging" }
 android-constraintlayout = { module = "androidx.constraintlayout:constraintlayout", version = "2.1.4" }
+android-swipe = { module = "androidx.swiperefreshlayout:swiperefreshlayout", version = "1.1.0" }
 
 lifecycle-runtime-ktx = { group = "androidx.lifecycle", name = "lifecycle-runtime-ktx", version.ref = "lifecycle" } # change to lifecycle-runtime when upgrading to 2.8.0
 lifecycle-viewmodel-ktx = { module = "androidx.lifecycle:lifecycle-viewmodel-ktx", version.ref = "lifecycle" }
@@ -51,12 +52,12 @@ ui-lottie = { module = "com.airbnb.android:lottie-compose", version.ref = "lotti
 ui-calendar = { module = "com.github.kizitonwose:CalendarView", version = "1.1.0" }
 
 # DataDog
-datadog-rum = { group  = "com.datadoghq", name = "dd-sdk-android-rum", version.ref = "datadog" }
-datadog-logs = { group  = "com.datadoghq", name = "dd-sdk-android-logs", version.ref = "datadog" }
-datadog-trace = { group  = "com.datadoghq", name = "dd-sdk-android-trace", version.ref = "datadog" }
-datadog-okhttp = { group  = "com.datadoghq", name = "dd-sdk-android-okhttp", version.ref = "datadog" }
-datadog-compose = { group  = "com.datadoghq", name = "dd-sdk-android-compose", version.ref = "datadog" }
-datadog-coroutines = { group  = "com.datadoghq", name = "dd-sdk-android-rum-coroutines", version.ref = "datadog" }
+datadog-rum = { group = "com.datadoghq", name = "dd-sdk-android-rum", version.ref = "datadog" }
+datadog-logs = { group = "com.datadoghq", name = "dd-sdk-android-logs", version.ref = "datadog" }
+datadog-trace = { group = "com.datadoghq", name = "dd-sdk-android-trace", version.ref = "datadog" }
+datadog-okhttp = { group = "com.datadoghq", name = "dd-sdk-android-okhttp", version.ref = "datadog" }
+datadog-compose = { group = "com.datadoghq", name = "dd-sdk-android-compose", version.ref = "datadog" }
+datadog-coroutines = { group = "com.datadoghq", name = "dd-sdk-android-rum-coroutines", version.ref = "datadog" }
 
 # Detekt
 detekt-report = { module = "com.gitlab.cromefire:detekt-gitlab-report", version.ref = "detekt-gitlab-report" }
@@ -115,10 +116,10 @@ koin-test-junit4 = { module = "io.insert-koin:koin-test-junit4", version.ref = "
 
 # Ktor
 ktor-core = { group = "io.ktor", name = "ktor-client-core", version.ref = "ktor" }
-ktor-serializarion = { group = "io.ktor", name = "ktor-serialization-kotlinx-json", version.ref = "ktor"}
+ktor-serializarion = { group = "io.ktor", name = "ktor-serialization-kotlinx-json", version.ref = "ktor" }
 ktor-logging = { group = "io.ktor", name = "ktor-client-logging", version.ref = "ktor" }
 ktor-okhttp = { group = "io.ktor", name = "ktor-client-okhttp", version.ref = "ktor" }
-ktor-contentnegociation = { group = "io.ktor", name = "ktor-client-content-negotiation", version.ref = "ktor"}
+ktor-contentnegociation = { group = "io.ktor", name = "ktor-client-content-negotiation", version.ref = "ktor" }
 
 # Room
 room-runtime = { group = "androidx.room", name = "room-runtime", version.ref = "room" }
@@ -220,7 +221,7 @@ kotlin-multiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref 
 kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
 kotlin-parcelize = { id = "org.jetbrains.kotlin.plugin.parcelize", version.ref = "kotlin" }
 kotlin-kapt = { id = "org.jetbrains.kotlin.kapt", version.ref = "kotlin" }
-kotlin-kover = { id = "org.jetbrains.kotlinx.kover", version = "0.8.1"}
+kotlin-kover = { id = "org.jetbrains.kotlinx.kover", version = "0.8.1" }
 
 # Google
 google-services = { id = "com.google.gms.google-services", version = "4.4.2" }

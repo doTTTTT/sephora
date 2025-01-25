@@ -43,6 +43,7 @@ dependencies {
     implementation(libs.android.activity)
     implementation(libs.android.core)
     implementation(libs.android.recyclerview.core)
+    implementation(libs.android.swipe)
 
     implementation(libs.lifecycle.runtime.ktx)
     implementation(libs.lifecycle.viewmodel.ktx)
