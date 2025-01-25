@@ -18,8 +18,6 @@ internal class MainActivity : ComponentActivity() {
 
         setContentView(binding.root)
 
-        
-
         binding.recycler.adapter = viewModel.adapter
         binding.recycler.addItemDecoration(ProductItemDecoration())
     }

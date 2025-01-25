@@ -20,12 +20,14 @@ internal class ProductAdapter :
         val item = getItem(position)
 
         holder.binding.textName.text = item.product.name
+        holder.binding.textDescription.text = item.product.description
+        holder.binding.textPrice.text = "${item.product.price}€"
         if (!item.hidden && holder.expanded) {
             holder.adapter.submitList(item.reviews)
         } else {
             holder.adapter.submitList(emptyList())
         }
-        holder.binding.textName.setOnClickListener {
+        holder.binding.root.setOnClickListener {
             if (holder.expanded) {
                 holder.adapter.submitList(emptyList())
             } else {
