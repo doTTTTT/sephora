@@ -1,0 +1,233 @@
+[versions]
+agp = "8.4.2"
+datadog = "2.12.1"
+detekt-gitlab-report = "0.3.3"
+google-services = "4.4.2"
+kotlin = "2.0.20"
+core-ktx = "1.13.1"
+junit = "4.13.2"
+paging = "3.3.2"
+lifecycle = "2.8.7"
+appcompat = "1.7.0"
+material = "1.12.0"
+koin = "4.0.0"
+accompanist = "0.34.0"
+lottie = "6.5.2"
+ktor = "2.3.12"
+room = "2.6.1"
+mockk = "1.13.10"
+
+sdk-compile = "34"
+sdk-min = "21"
+sdk-target = "34"
+javaVersion = "17"
+uiautomator = "2.3.0"
+benchmark-macro-junit4 = "1.3.3"
+baselineprofile = "1.3.3"
+profileinstaller = "1.4.1"
+
+[libraries]
+# Android
+android-core = { group = "androidx.core", name = "core-ktx", version.ref = "core-ktx" }
+android-activity = { group = "androidx.activity", name = "activity", version = "1.9.2" }
+android-fragment = { group = "androidx.fragment", name = "fragment-ktx", version = "1.8.3" }
+android-appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
+android-recyclerview-core = { group = "androidx.recyclerview", name = "recyclerview", version = "1.3.2" }
+android-recyclerview-selection = { group = "androidx.recyclerview", name = "recyclerview-selection", version = "1.1.0" }
+android-security = { module = "androidx.security:security-crypto", version = "1.1.0-alpha06" }
+android-paging = { group = "androidx.paging", name = "paging-runtime-ktx", version.ref = "paging" }
+android-constraintlayout = { module = "androidx.constraintlayout:constraintlayout", version = "2.1.4" }
+
+lifecycle-runtime-ktx = { group = "androidx.lifecycle", name = "lifecycle-runtime-ktx", version.ref = "lifecycle" } # change to lifecycle-runtime when upgrading to 2.8.0
+lifecycle-viewmodel-ktx = { module = "androidx.lifecycle:lifecycle-viewmodel-ktx", version.ref = "lifecycle" }
+
+
+ui = { group = "androidx.compose.ui", name = "ui" }
+ui-graphics = { group = "androidx.compose.ui", name = "ui-graphics" }
+ui-tooling = { group = "androidx.compose.ui", name = "ui-tooling" }
+ui-test-manifest = { group = "androidx.compose.ui", name = "ui-test-manifest" }
+ui-test-junit4 = { group = "androidx.compose.ui", name = "ui-test-junit4" }
+ui-lottie = { module = "com.airbnb.android:lottie-compose", version.ref = "lottie" }
+ui-calendar = { module = "com.github.kizitonwose:CalendarView", version = "1.1.0" }
+
+# DataDog
+datadog-rum = { group  = "com.datadoghq", name = "dd-sdk-android-rum", version.ref = "datadog" }
+datadog-logs = { group  = "com.datadoghq", name = "dd-sdk-android-logs", version.ref = "datadog" }
+datadog-trace = { group  = "com.datadoghq", name = "dd-sdk-android-trace", version.ref = "datadog" }
+datadog-okhttp = { group  = "com.datadoghq", name = "dd-sdk-android-okhttp", version.ref = "datadog" }
+datadog-compose = { group  = "com.datadoghq", name = "dd-sdk-android-compose", version.ref = "datadog" }
+datadog-coroutines = { group  = "com.datadoghq", name = "dd-sdk-android-rum-coroutines", version.ref = "datadog" }
+
+# Detekt
+detekt-report = { module = "com.gitlab.cromefire:detekt-gitlab-report", version.ref = "detekt-gitlab-report" }
+
+# Junit
+junit-core = { group = "junit", name = "junit", version.ref = "junit" }
+junit-launcher = { module = "org.junit.vintage:junit-vintage-engine", version = "5.10.1" }
+
+# Firebase
+firebase-bom = { module = "com.google.firebase:firebase-bom", version = "33.3.0" }
+firebase-config = { module = "com.google.firebase:firebase-config" }
+firebase-crashlytics = { module = "com.google.firebase:firebase-crashlytics-ktx" }
+firebase-analytics = { module = "com.google.firebase:firebase-analytics-ktx" }
+firebase-messaging = { module = "com.google.firebase:firebase-messaging-ktx" }
+firebase-perf = { module = "com.google.firebase:firebase-perf-ktx" }
+
+# Google
+google-playservices-location = { module = "com.google.android.gms:play-services-location", version = "21.3.0" }
+google-playservices-instantapps = { module = "com.google.android.gms:play-services-instantapps", version = "18.1.0" }
+google-playservices-maps = { module = "com.google.android.gms:play-services-maps", version = "19.0.0" }
+google-playservices-appupdate = { module = "com.google.android.play:app-update-ktx", version = "2.1.0" }
+google-material = { group = "com.google.android.material", name = "material", version.ref = "material" }
+google-services = { module = "com.google.gms:google-services", version.ref = "google-services" }
+google-accompanist-permissions = { module = "com.google.accompanist:accompanist-permissions", version.ref = "accompanist" }
+google-maps-ktx = { module = "com.google.maps.android:maps-ktx", version = "5.1.1" }
+google-maps-utils = { module = "com.google.maps.android:android-maps-utils", version = "3.8.2" }
+google-maps-utilsktx = { module = "com.google.maps.android:maps-utils-ktx", version = "5.0.0" }
+google-places = { module = "com.google.android.libraries.places:places", version = "3.5.0" }
+google-phone = { module = "com.googlecode.libphonenumber:libphonenumber", version = "8.13.11" }
+google-scanner = { module = "com.google.android.gms:play-services-mlkit-document-scanner", version = "16.0.0-beta1" }
+google-barcode = { module = "com.google.mlkit:barcode-scanning", version = "17.3.0" }
+google-guava = { module = "com.google.guava:guava", version = "33.2.0-android" }
+
+# Glide
+glide-core = { module = "com.github.bumptech.glide:glide", version = "4.16.0" }
+glide-svg = { module = "com.github.qoqa:glide-svg", version = "3.0.1" }
+glide-ksp = { module = "com.github.bumptech.glide:ksp", version = "4.14.2" }
+glide-compiler = { module = "com.github.bumptech.glide:compiler", version = "4.13.2" }
+
+# Kotlin
+kotlin-core = { module = "org.jetbrains.kotlin:kotlin-stdlib", version.ref = "kotlin" }
+kotlin-reflect = { module = "org.jetbrains.kotlin:kotlin-reflect", version.ref = "kotlin" }
+kotlin-coroutine = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version = "1.9.0" }
+kotlin-datetime = { module = "org.jetbrains.kotlinx:kotlinx-datetime", version = "0.6.1" }
+kotlin-serialization = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version = "1.7.0" }
+kotlin-test-core = { module = "org.jetbrains.kotlin:kotlin-test", version.ref = "kotlin" }
+kotlin-test-coroutine = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-test", version = "1.9.0" }
+
+# Koin
+koin-core = { module = "io.insert-koin:koin-core", version.ref = "koin" }
+koin-android = { module = "io.insert-koin:koin-android", version.ref = "koin" }
+koin-compose = { module = "io.insert-koin:koin-androidx-compose", version.ref = "koin" }
+koin-workmanager = { module = "io.insert-koin:koin-androidx-workmanager", version.ref = "koin" }
+koin-test = { module = "io.insert-koin:koin-test", version.ref = "koin" }
+koin-test-junit4 = { module = "io.insert-koin:koin-test-junit4", version.ref = "koin" }
+
+# Ktor
+ktor-core = { group = "io.ktor", name = "ktor-client-core", version.ref = "ktor" }
+ktor-serializarion = { group = "io.ktor", name = "ktor-serialization-kotlinx-json", version.ref = "ktor"}
+ktor-logging = { group = "io.ktor", name = "ktor-client-logging", version.ref = "ktor" }
+ktor-okhttp = { group = "io.ktor", name = "ktor-client-okhttp", version.ref = "ktor" }
+ktor-contentnegociation = { group = "io.ktor", name = "ktor-client-content-negotiation", version.ref = "ktor"}
+
+# Room
+room-runtime = { group = "androidx.room", name = "room-runtime", version.ref = "room" }
+room-compiler = { group = "androidx.room", name = "room-compiler", version.ref = "room" }
+room-ktx = { group = "androidx.room", name = "room-ktx", version.ref = "room" }
+room-rxjava2 = { group = "androidx.room", name = "room-rxjava2", version.ref = "room" }
+room-test = { group = "androidx.room", name = "room-testing", version.ref = "room" }
+room-paging = { group = "androidx.room", name = "room-paging", version.ref = "room" }
+
+# Squarup
+squareup-okhttp-core = { group = "com.squareup.okhttp3", name = "okhttp", version = "4.12.0" }
+
+# Test
+test-android-core = { group = "androidx.test", name = "core", version = "1.6.1" }
+test-android-junit-core = { group = "androidx.test.ext", name = "junit", version = "1.2.1" }
+test-android-junit-ext = { group = "androidx.test.ext", name = "junit-ktx", version = "1.2.1" }
+test-android-espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version = "3.6.1" }
+test-android-espresso-intents = { group = "androidx.test.espresso", name = "espresso-intents", version = "3.6.1" }
+test-android-rules = { group = "androidx.test", name = "rules", version = "1.6.1" }
+test-android-runner = { group = "androidx.test", name = "runner", version = "1.6.2" }
+test-android-coretesting = { group = "androidx.arch.core", name = "core-testing", version = "2.2.0" }
+test-compose = { module = "androidx.compose.ui:ui-test-junit4", version = "1.7.1" }
+test-jupiter = { module = "org.junit.jupiter:junit-jupiter", version = "5.10.1" }
+test-roboelectric = { module = "org.robolectric:robolectric", version = "4.11.1" }
+test-fragment = { module = "androidx.fragment:fragment-testing", version = "1.8.3" }
+test-mockito-core = { group = "org.mockito", name = "mockito-core", version = "4.11.0" }
+test-mockito-android = { group = "org.mockito", name = "mockito-android", version = "4.11.0" }
+test-mockito-inline = { group = "org.mockito", name = "mockito-inline", version = "4.11.0" }
+test-turbine = { module = "app.cash.turbine:turbine", version = "1.1.0" }
+
+# Mockk
+mockk = { module = "io.mockk:mockk", version.ref = "mockk" }
+mockk-jvm = { module = "io.mockk:mockk-agent-jvm", version.ref = "mockk" }
+mockk-android = { module = "io.mockk:mockk-android", version.ref = "mockk" }
+
+# Other
+slf4j = { module = "ch.qos.logback:logback-classic", version = "1.4.11" }
+sqllite = { module = "org.xerial:sqlite-jdbc", version = "3.41.2.2" }
+desugar = { module = "com.android.tools:desugar_jdk_libs", version = "2.1.4" }
+uiautomator = { group = "androidx.test.uiautomator", name = "uiautomator", version.ref = "uiautomator" }
+benchmark-macro-junit4 = { group = "androidx.benchmark", name = "benchmark-macro-junit4", version.ref = "benchmark-macro-junit4" }
+profileinstaller = { group = "androidx.profileinstaller", name = "profileinstaller", version.ref = "profileinstaller" } # To remove
+
+[bundles]
+# AndroidX
+
+# DataDog
+datadog = [
+    "datadog-rum", "datadog-compose", "datadog-logs",
+    "datadog-coroutines", "datadog-okhttp", "datadog-trace"
+]
+
+# Lifecycle
+lifecycle = ["lifecycle-runtime-ktx", "lifecycle-viewmodel-ktx"]
+
+# UI
+ui = [
+    "android-core", "google-material", "android-appcompat",
+    "ui-tooling", "ui-graphics", "ui-lottie"
+]
+
+# Koin
+koin = ["koin-core", "koin-android", "koin-compose", "koin-workmanager"]
+
+#
+kotlin = ["kotlin-core", "kotlin-coroutine", "kotlin-datetime", "kotlin-reflect", "kotlin-serialization"]
+
+# Ktor
+ktor = ["ktor-core", "ktor-logging", "ktor-serializarion", "ktor-contentnegociation", "ktor-okhttp"]
+
+# Map
+map = ["google-playservices-maps", "google-maps-ktx", "google-maps-utils", "google-maps-utilsktx"]
+
+# Room
+room = ["room-ktx", "room-rxjava2", "room-paging", "room-runtime"]
+
+# Test
+test-unit = [
+    "junit-core", "koin-test", "koin-test-junit4", "test-android-core", "test-android-coretesting",
+    "test-android-rules", "test-android-runner", "test-android-junit-core", "test-android-junit-ext",
+    "kotlin-test-core", "kotlin-test-coroutine", "test-jupiter", "test-roboelectric",
+    "test-mockito-core", "test-mockito-inline", "room-test", "mockk",
+    "mockk-jvm", "test-turbine"
+]
+test-inte = [
+    "ui-test-junit4", "ui-test-manifest", "test-android-espresso-core", "kotlin-test-core",
+    "test-android-runner", "test-android-rules", "test-compose", "mockk-android", "koin-test",
+    "koin-test-junit4", "kotlin-test-coroutine", "test-mockito-android"
+]
+
+
+[plugins]
+# Android
+android-application = { id = "com.android.application", version.ref = "agp" }
+android-library = { id = "com.android.library", version.ref = "agp" }
+# Kotlin
+kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
+kotlin-multiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }
+kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
+kotlin-parcelize = { id = "org.jetbrains.kotlin.plugin.parcelize", version.ref = "kotlin" }
+kotlin-kapt = { id = "org.jetbrains.kotlin.kapt", version.ref = "kotlin" }
+kotlin-kover = { id = "org.jetbrains.kotlinx.kover", version = "0.8.1"}
+
+# Google
+google-services = { id = "com.google.gms.google-services", version = "4.4.2" }
+google-ksp = { id = "com.google.devtools.ksp", version = "2.0.20-1.0.24" }
+
+# Firebase
+firebase-perf = { id = "com.google.firebase.firebase-perf", version = "1.4.2" }
+firebase-appdisitrbution = { id = "com.google.firebase.appdistribution", version = "5.0.0" }
+firebase-crashlytics = { id = "com.google.firebase.crashlytics", version = "3.0.2" }
+androidTest = { id = "com.android.test", version.ref = "agp" }
