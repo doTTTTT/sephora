@@ -1,5 +1,7 @@
 package fr.dot.sephora.feature.main
 
+import android.widget.Filter
+import android.widget.Filterable
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import fr.dot.sephora.library.domain.usecase.GetProductsUseCase
@@ -12,6 +14,9 @@ internal class MainViewModel(
 ) : ViewModel() {
 
     val adapter = ProductAdapter()
+
+    private val fullList: MutableList<ProductWithReviews> = mutableListOf()
+    private val filter = Filterable { ProductFilter() }
 
     init {
         viewModelScope.launch {
@@ -31,8 +36,45 @@ internal class MainViewModel(
                 )
             }
 
+            fullList.addAll(productsWithReviews)
             adapter.submitList(productsWithReviews)
         }
+    }
+
+    fun onSearch(query: String) {
+        filter.filter.filter(query)
+    }
+
+    fun onCloseSearch() {
+        println("FULLLIST")
+        adapter.submitList(fullList)
+    }
+
+    private inner class ProductFilter : Filter() {
+
+        override fun performFiltering(constraint: CharSequence?): FilterResults {
+            val results = FilterResults()
+            val filter = if (constraint.isNullOrEmpty()) {
+                fullList
+            } else {
+                fullList.filter { product ->
+                    product.product.name.contains(constraint.toString().orEmpty(), true)
+                }
+            }
+
+            results.values = filter
+
+            return results
+        }
+
+        override fun publishResults(constraint: CharSequence?, results: FilterResults?) {
+            val values = results?.values ?: return
+
+            if (values is List<*>) {
+                adapter.submitList(values.filterIsInstance<ProductWithReviews>())
+            }
+        }
+
     }
 
 }
