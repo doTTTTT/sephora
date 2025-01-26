@@ -42,5 +42,8 @@ dependencies {
 
     implementation(libs.bundles.ktor)
 
+    testImplementation(libs.bundles.test.unit)
+    testImplementation(libs.ktor.test)
+
     implementation(projects.data.core)
 }

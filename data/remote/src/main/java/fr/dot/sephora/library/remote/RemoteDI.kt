@@ -7,6 +7,7 @@ import fr.dot.sephora.library.remote.source.product.ProductService
 import fr.dot.sephora.library.remote.source.review.ReviewRemoteDataSourceImpl
 import fr.dot.sephora.library.remote.source.review.ReviewService
 import io.ktor.client.HttpClient
+import io.ktor.client.engine.HttpClientEngine
 import io.ktor.client.engine.okhttp.OkHttp
 import io.ktor.client.plugins.contentnegotiation.ContentNegotiation
 import io.ktor.client.plugins.defaultRequest
@@ -20,7 +21,7 @@ import org.koin.dsl.module
 
 val remoteDi = module {
     single { provideJson() }
-    single { provideClient(get()) }
+    single { provideClient(OkHttp.create(), get()) }
 
     singleOf(::ProductService)
     singleOf(::ReviewService)
@@ -35,8 +36,11 @@ internal fun provideJson(): Json {
     }
 }
 
-internal fun provideClient(json: Json): HttpClient {
-    return HttpClient(OkHttp) {
+internal fun provideClient(
+    engine: HttpClientEngine,
+    json: Json
+): HttpClient {
+    return HttpClient(engine) {
         install(ContentNegotiation) {
             json(json)
         }
