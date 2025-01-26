@@ -1,6 +1,7 @@
 package fr.dot.sephora.library.remote
 
 import fr.dot.sephora.library.remote.response.items
+import fr.dot.sephora.library.remote.response.reviews
 import fr.dot.sephora.library.remote.source.product.ProductService
 import fr.dot.sephora.library.remote.source.review.ReviewService
 import io.ktor.client.engine.mock.MockEngine
@@ -39,7 +40,7 @@ class RequestTest {
     fun testReviewRequest() = runTest {
         val mockEngine = MockEngine { request ->
             respond(
-                content = items,
+                content = reviews,
                 status = HttpStatusCode.OK,
                 headers = headersOf(HttpHeaders.ContentType to listOf(ContentType.Application.Json.toString()))
             )

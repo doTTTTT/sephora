@@ -36,6 +36,11 @@ android {
     buildFeatures {
         viewBinding = true
     }
+
+    testOptions {
+        unitTests.isIncludeAndroidResources  = true
+        unitTests.isReturnDefaultValues = true
+    }
 }
 
 dependencies {
@@ -53,6 +58,9 @@ dependencies {
     implementation(libs.google.material)
 
     implementation(libs.bundles.koin)
+
+    testImplementation(libs.bundles.test.unit)
+    testImplementation(libs.kotlin.test.coroutine)
 
     implementation(projects.library.domain)
 }
