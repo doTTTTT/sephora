@@ -2,11 +2,11 @@
   "formatVersion": 1,
   "database": {
     "version": 1,
-    "identityHash": "03e6d0330f8992fe317af82c82717bd4",
+    "identityHash": "2a5b280069995107ee916d73de6c4377",
     "entities": [
       {
         "tableName": "product",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`product_id` INTEGER NOT NULL, `product_name` TEXT NOT NULL, `description` TEXT NOT NULL, `price` REAL NOT NULL, `is_productSet` INTEGER NOT NULL, `is_special_brand` INTEGER NOT NULL, `image_url_small` TEXT, `image_url_large` TEXT, `c_brand_id` TEXT NOT NULL, `c_brand_name` TEXT NOT NULL, PRIMARY KEY(`product_id`))",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`product_id` INTEGER NOT NULL, `product_name` TEXT NOT NULL, `description` TEXT NOT NULL, `price` REAL NOT NULL, `is_productSet` INTEGER NOT NULL, `is_special_brand` INTEGER NOT NULL, `images_url_small` TEXT, `images_url_large` TEXT, `c_brand_id` TEXT NOT NULL, `c_brand_name` TEXT NOT NULL, PRIMARY KEY(`product_id`))",
         "fields": [
           {
             "fieldPath": "id",
@@ -46,13 +46,13 @@
           },
           {
             "fieldPath": "imageUrl.small",
-            "columnName": "image_url_small",
+            "columnName": "images_url_small",
             "affinity": "TEXT",
             "notNull": false
           },
           {
             "fieldPath": "imageUrl.large",
-            "columnName": "image_url_large",
+            "columnName": "images_url_large",
             "affinity": "TEXT",
             "notNull": false
           },
@@ -152,7 +152,7 @@
     "views": [],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '03e6d0330f8992fe317af82c82717bd4')"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '2a5b280069995107ee916d73de6c4377')"
     ]
   }
 }

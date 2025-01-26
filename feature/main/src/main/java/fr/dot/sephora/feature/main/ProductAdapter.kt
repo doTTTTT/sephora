@@ -4,6 +4,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import fr.dot.sephora.feature.main.databinding.ItemProductBinding
 
 internal class ProductAdapter :
@@ -22,6 +23,9 @@ internal class ProductAdapter :
         holder.binding.textName.text = item.product.name
         holder.binding.textDescription.text = item.product.description
         holder.binding.textPrice.text = "${item.product.price}€"
+        Glide.with(holder.binding.image)
+            .load(item.product.imageUrl?.small)
+            .into(holder.binding.image)
         if (!item.hidden && holder.expanded) {
             holder.adapter.submitList(item.reviews)
         } else {

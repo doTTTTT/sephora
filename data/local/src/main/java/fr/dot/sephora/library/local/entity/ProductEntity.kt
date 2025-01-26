@@ -24,7 +24,7 @@ internal data class ProductEntity(
     @ColumnInfo(name = "price")
     val price: Double,
 
-    @Embedded(prefix = "image_url_")
+    @Embedded(prefix = "images_url_")
     val imageUrl: ImageUrl? = null,
 
     @Embedded("c_brand_")

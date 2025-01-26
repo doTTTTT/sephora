@@ -19,7 +19,7 @@ internal data class ProductEntity(
     @SerialName("price")
     val price: Double,
 
-    @SerialName("image_url")
+    @SerialName("images_url")
     val imageUrl: ImageUrl? = null,
 
     @SerialName("c_brand")
