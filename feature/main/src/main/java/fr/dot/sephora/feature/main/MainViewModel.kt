@@ -59,11 +59,16 @@ internal class MainViewModel(
         adapter.submitList(fullList)
     }
 
-    private fun refresh() {
+    fun onRefresh(callback: () -> Unit) {
         viewModelScope.launch {
-            productsUseCase(GetProductsUseCase.Params)
-            reviewsUseCase(GetReviewsUseCase.Params)
+            refresh()
+            callback()
         }
+    }
+
+    private suspend fun refresh() {
+        productsUseCase(GetProductsUseCase.Params)
+        reviewsUseCase(GetReviewsUseCase.Params)
     }
 
     private inner class ProductFilter : Filter() {

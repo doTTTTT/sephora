@@ -32,6 +32,7 @@ internal fun ReviewsEntity.toDomain(reviews: List<ReviewEntity>) = Reviews(
     hide = hide,
     reviews = reviews.map { review ->
         Reviews.Review(
+            id = review.id,
             name = review.name,
             text = review.text,
             rating = review.rating
@@ -44,7 +45,7 @@ internal fun Reviews.toLocal() = ReviewsEntity(
     hide = hide
 ) to reviews.map { review ->
     ReviewEntity(
-        id = -1,
+        id = review.id,
         name = review.name,
         productId = productId,
         text = review.text,

@@ -39,6 +39,7 @@ internal fun ReviewsEntity.toDomain() = Reviews(
     hide = hide,
     reviews = reviews.map { review ->
         Reviews.Review(
+            id = 0,
             name = review.name,
             text = review.text,
             rating = review.rating

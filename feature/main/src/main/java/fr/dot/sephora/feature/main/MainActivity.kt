@@ -23,11 +23,16 @@ internal class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
 
         setContentView(binding.root)
-
         setSupportActionBar(binding.toolbar)
 
         binding.recycler.adapter = viewModel.adapter
         binding.recycler.addItemDecoration(ProductItemDecoration())
+
+        binding.swipe.setOnRefreshListener {
+            viewModel.onRefresh {
+                binding.swipe.isRefreshing = false
+            }
+        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {

@@ -7,6 +7,7 @@ data class Reviews(
 ) {
 
     data class Review(
+        val id: Int,
         val name: String?,
         val text: String?,
         val rating: Float?

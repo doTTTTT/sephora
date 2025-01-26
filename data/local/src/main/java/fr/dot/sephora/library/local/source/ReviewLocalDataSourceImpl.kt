@@ -36,10 +36,13 @@ internal class ReviewLocalDataSourceImpl(
                     emitAll(flowOf(emptyList()))
                 } else {
                     emitAll(
-                        combine<Reviews, List<Reviews>>(list.map { review ->
-                            reviewDao.flowOfReviews(review.id)
-                                .map { review.toDomain(it) }
-                        }, Array<Reviews>::toList)
+                        combine<Reviews, List<Reviews>>(
+                            list.map { review ->
+                                reviewDao.flowOfReviews(review.id)
+                                    .map { review.toDomain(it) }
+                            },
+                            Array<Reviews>::toList
+                        )
                     )
                 }
             }
